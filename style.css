@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-color: var(--color1);
+  }
+
+:root {
+    --color1: blueviolet;
+    --contColor: white ;
+    --color2: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 8px;
+    align-items: center; 
+
+    background-color: var(--contColor);
+    width: 60vw;
+
+    min-width: 400px;
+    height: 60vh;
+
+    color: var(--color2);
+    gap: 15px;
+
+}
+
+textarea {
+    width: 40vw;
+    height: 15vh;
+  
+    background-color: var(--contColor);
+    color: var(--color2);
+}
+
+.campos-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    min-width: 100px;
+    min-height: 50px;
+    
+}
+
+h1 {
+    color: var(--color1);
+}
+
+button {
+    font-size: 18px;
+    font-weight: 600;
+
+    width: 25%;
+    min-width: auto;
+    min-height: auto;
+    height: 12%;
+    border-radius: 8px;
+    color: var(--contColor);
+    background-color: var(--color1);
+}

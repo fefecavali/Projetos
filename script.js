@@ -4,12 +4,30 @@ const divContador = document.querySelector("[txt-contador]")
 
 let contagemCaracteres = true
 
-const saudacao = (evento) => {
-
-    console.log(evento.target.value)
-    
-    
+function contagem () {
+    let quantPalavras = 0
+    if (contagemCaracteres) {
+    let isPalavra = false;
+    for (let i = 0; i < inputTexto.value.length; i++) {
+        if (inputTexto.value[i] !== " " && inputTexto.value[i] !== "\n" && inputTexto.value[i] !== "\t") // verificando se nn tem é espaco em branco, quebra linha ou tab
+         {          
+            if (!isPalavra) {
+                isPalavra = true;
+                quantPalavras++;
+            }
+        } else {
+            isPalavra = false;
+    divContador.innerText = quantPalavras; 
+                } 
+            }
+        } else{
+        let quantCaractere = inputTexto.value.length
+        divContador.innerText = quantCaractere; }
+       
 }
+
+// "&&" verdadeiro ao mesmo tempo
+
 
 function handleBtnContar(evento) {
     if (contagemCaracteres){
@@ -23,15 +41,9 @@ function handleBtnContar(evento) {
 // variavel q recebeu função não declarativa
 
 
-// function saudacao(evento) {
-    //     console.log("ola")
-    //     console.log(evento.target)
-    // } funcao declarativa
-    
-    
 btnContar.addEventListener("click", handleBtnContar)
+inputTexto.addEventListener("input", contagem);
 // btnContar.onclick = handleBtnContar   -> outra forma
 
 
-inputTexto.addEventListener("input", saudacao)
    

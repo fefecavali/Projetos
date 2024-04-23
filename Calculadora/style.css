@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  background: linear-gradient(to right, #233329, #41b883);
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.grid-container > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #111;
+  color: #eee;
+}
+.grid-container > button:hover {
+  background-color: #eee;
+  color: #111;
+}
+
+.grid-container > .operador {
+  background: #41b88375;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.grid-container > .display-container {
+  grid-column: 1 / -1; /* ocupa todas as colunas. define onde começa e onde termina a coluna. */
+  background-color: #222;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 10px;
+  /* Indica que as palavras normalmente inquebráveis podem ser quebrados em pontos arbitrários se não houver pontos de quebra de outra forma aceitáveis na linha. */
+  word-wrap: break-word;
+  /* Para evitar excesso, quebras de palavras devem ser inseridas entre quaisquer dois caracteres (excluindo texto chinês/japonês/coreano). */
+  word-break: break-all;
+}
+
+.grid-container > .display-container > .buffer {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.grid-container > .display-container > .display {
+  color: white;
+  font-size: 2.5rem;
+}

@@ -17,8 +17,7 @@ function contagem () {
 
 
 function handleBtnContar(evento) {
-    divContador.innerText = 0;
-    
+
     if (contagemCaracteres){
         evento.target.innerText = "Contar Palavras"     
         contagemCaracteres = false;

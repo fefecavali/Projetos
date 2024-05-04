@@ -1,10 +1,10 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-  font-family: "Poppins", sans-serif;
- 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: "Poppins", sans-serif;
+    
 }
 
 :root {
@@ -18,39 +18,66 @@ body {
     align-items: center;
     height: 100vh;
     
-
+    
     background-color: var(--color1);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
+.container {
+    
     width: 50vw;
     height: 50vh;
     background-color: var(--color2);
-
-    padding: 20px;
-
+  
+    margin: 100px auto;
+      
     border-radius: 10px;
-
+      
 }
-
-img {
+    
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+      
+    }
+    
+header img {
     height: 30px;
 }
+    
+    
+main {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+}
 
-.container button {
+
+main button {
     padding: 12;
     background-color: var(--color1);
     border-radius: 10px;
     border: none; 
     cursor: pointer;
-
- }
-
-.container button img {
-    width: 1.5rem;
+    
+    width: 15%;
+    height: 40px;
 }
 
+main button img {
+    width: 1.5rem;
+            }
+   
+.phoneData input {
+    box-sizing: border-box;
+    font-size: 1.3em ;
+    width: 60%;
+    border-radius: 10px;
+    height: 40px;
+}
+    
+    

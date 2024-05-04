@@ -6,20 +6,29 @@
     <title>Gerador de Link</title>
 
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
    
 </head>
 <body>
     <div class="container">
-        <h1>Gerador de Link <img src="./whatsapp.svg" alt="whatsIcon"></h1> 
-    
-        <div>
-            <input type="text">
-            <button><img src="./linkIcon.svg" alt="link"></button>
-            <button><img src="./sendIcon.svg" alt=""></button>
+        <header>
+            <h1>Gerador de Link <img src="./whatsapp.svg" alt="whatsIcon"></h1> 
+        </header>
 
-        </div>
+        <main>
+            <div class="phoneData">
+                <input type="text" name="input" id="input" placeholder="Telefone">
+                <button><img src="./linkIcon.svg" alt="link"></button>
+                <button><img src="./sendIcon.svg" alt=""></button>
+    
+            </div>
+
+            <div class="resultLink">
+                
+            </div>
+        </main>
 
     </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>

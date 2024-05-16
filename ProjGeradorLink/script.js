@@ -1,24 +1,22 @@
-// Variáveis -> 
 let input = document.querySelector("#input") ;
 let copyBtn = document.querySelector("#copyBtn") ;
 let sendBtn = document.querySelector("#sendBtn") ;
-let resultLink = document.querySelector("#resultLink") ;
+let resultLink = document.querySelector(".resultLink") ;
 
-const regex = /(\(?\d{2})(\d{4,5})(\d{4})/g ;  // expressão regular
+const regex = /(\(?\d{2})(\d{4,5})(\d{4})/g ;  
 
-// Funçõo que vai gerar o link quando chamada nos botoes ->
+// Funçõo que vai gerar o link ->
 let linkWhatsapp = () => { 
     let clearNumber = input.value.replace(/\D/g, ''); 
     return `https://wa.me/55${clearNumber}`;
     
 }
 
-// Permite a entrada de até 11 digitos, realiza a mascara quando o numero é validado e muda a cor ->
 input.addEventListener("input", function() {
     
     input.value = input.value.replace(/\D/g, '') ;  // Permite somente dígitos  
     
-    if (input.value.length == 11){
+    if (input.value.length == 11){ 
         input.style.color = 'green';
         input.value = input.value.replace(regex, '($1) $2-$3') ; //Adicionando máscara    
         
@@ -31,10 +29,10 @@ input.addEventListener("input", function() {
     }
 });
 
-// Volta a tela inicial
-input.addEventListener("click", ()=> {resultLink.innerHTML = ""}) ;
 
-//Primeiro botao gera link e o exibe logo abaixo ->
+input.addEventListener("click", ()=> {resultLink.innerHTML = ""}) ; // Volta a tela inicial
+
+//Primeiro botao ->
 copyBtn.addEventListener("click", function() {
     clearPhone = input.value.replace(/\D/g, '') ;
     if (clearPhone.length !== 11) {
@@ -42,6 +40,7 @@ copyBtn.addEventListener("click", function() {
         return '';
     }
 
+    //cria no HTML
     resultLink.innerHTML = `
     <div class = "showedLink">
         <p>${linkWhatsapp()}</p>
@@ -53,7 +52,7 @@ copyBtn.addEventListener("click", function() {
     let showedLink = document.querySelector(".showedLink");
     let messageLink = document.querySelector("#messageLink");
 
-    //copia para a area de transferencia e muda mensagem
+    
     showedLink.addEventListener("click", () => {
         navigator.clipboard.writeText(linkWhatsapp()) 
         .then(()=> {
@@ -65,7 +64,7 @@ copyBtn.addEventListener("click", function() {
     })
 });
 
-// Segundo botao gera link e abre em uma nova aba ->
+// Segundo botão ->
 sendBtn.addEventListener("click", function () {
     clearPhone = input.value.replace(/\D/g, '') ;
     if (clearPhone.length !== 11) {

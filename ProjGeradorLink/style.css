@@ -2,15 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
     font-family: "Poppins", sans-serif;
-    
 }
 
 :root {
     --color1: green ;
-    --color3: gray;
-    --color2: white;
+    --color2: rgb(221, 211, 211);
+    --color3: white;
+    --color4: rgb(233, 233, 233);
 }
 
 body {
@@ -18,24 +17,22 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
-    
     background-color: var(--color1);
 }
 
 
-.container {
-    
-    width: 50vw;
+.container { 
+    width: 90%;
+    max-width: 600px; 
+    min-width: 300px;
     height: 50vh;
-    background-color: var(--color2);
-  
-    margin: 100px auto;
-      
+    background-color: var(--color3);
+    margin: 20px;
+    padding: 20px; 
     border-radius: 10px;
       
 }
-    
+
 header {
     display: flex;
     flex-direction: column;
@@ -47,27 +44,22 @@ header {
 header img {
     height: 30px;
 }
-    
+
     
 main {
-    height: 200px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-        
+    margin-top: 20px;           
 }
 
-
 main button {
-    padding: 12;
+    padding: 10px;
+    margin: 2px;
     background-color: var(--color1);
     border-radius: 10px;
     border: none; 
     cursor: pointer;
-    
-    width: 15%;
-    height: 40px;
 }
 
 main button img {
@@ -75,37 +67,32 @@ main button img {
             }
    
 input {
+    flex: 1; 
     padding: 10px;
-    font-weight: bolder;
-}
-.phoneData input {
-    box-sizing: border-box;
-    font-size: 1.3em ;
-    width: 60%;
+    height: 50px;
     border-radius: 10px;
-    height: 40px;
+    font-size: 1.3em ;
+}
+
+.phoneData {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;   
 }
 
 .resultLink {
-    box-sizing: border-box;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    height: 40px;
-    font-size: 1em;
+    width: 100%;
+    margin-top: 10px;
+
 }
 
 .showedLink {
-
     user-select: none;
     width: 100%;
-    margin-top: 2px;
-    
     padding: 5px;
-    border: 1px solid var(--color3);
+    background-color: var(--color4);
+    border: 1px solid var(--color2);
     border-radius: 4px;
     
 }
@@ -114,5 +101,6 @@ input {
     width: 100%;
     margin: 10px;
     text-align: center;
+    font-weight: 600;
     
 }

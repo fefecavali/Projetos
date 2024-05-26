@@ -102,6 +102,7 @@ input, button {
     border: 1px solid var(--color5);
 }
 button {
+    cursor: pointer;
     font-size: var(--size2);
     display: flex;
     align-items: center;

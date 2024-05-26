@@ -11,15 +11,19 @@
         <img id="logo" src="./logo.png" alt="logo">
         <img src="./text.png" alt="textLogo">
     </header>
+    <nav>
+        <input type="text" placeholder="Adicione uma nova tarefa">
+        <button>Criar <img src="./icon.svg" alt="icon"></button> 
+    </nav>
     <main>
         <section>
-            <input type="text" placeholder="Adicione uma nova tarefa">
-            <button>Criar <img src="./icon.svg" alt="icon"></button> 
+            <div class="text">Tarefas criadas <div class="counter">0</div></div>
+            <div class="text" id="doneText">Concluídas <div class="counter">0</div></div>     
         </section>
         <article>
-            <div class="text">Tarefas criadas <div class="counter">0</div></div>
-            <div class="text" id="doneText">Concluídas <div class="counter">0</div></div>
-                
+            <img src="./taskIcon.svg" alt="taskIcon">
+            <p> <strong>Você ainda não tem tarefas cadastradas</strong></p>
+            <p>Crie tarefas e organize seus itens a fazer</p>
         </article>
     </main>
 </body>

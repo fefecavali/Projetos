@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -11,7 +12,15 @@
         <img src="./text.png" alt="textLogo">
     </header>
     <main>
-        <input type="text" placeholder="Adicione uma nova tarefa">
+        <section>
+            <input type="text" placeholder="Adicione uma nova tarefa">
+            <button>Criar <img src="./icon.svg" alt="icon"></button> 
+        </section>
+        <article>
+            <div class="text">Tarefas criadas <div class="counter">0</div></div>
+            <div class="text" id="doneText">Concluídas <div class="counter">0</div></div>
+                
+        </article>
     </main>
 </body>
 </html>

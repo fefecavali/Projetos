@@ -1,0 +1,39 @@
+* {
+    font-family: Inter;
+
+}
+
+:root {
+
+    /* Produto */
+    --color1: #1E6F9F;
+    --color2: #4EA8DE;
+    --color3: #5E60CE;
+    --color4: #8284FA;
+
+    /* Base */
+    --color5: #0D0D0D;
+    --color6: #1A1A1A;
+    --color7: #262626;
+    --color8: #333333;
+    --color9: #808080;
+    --color10: #D9D9D9;
+    --color11: #F2F2F2;
+
+    /* Feedback */
+    --color12: #E25858;
+    
+    /*Sizes*/
+    --size1: 12px;
+    --size2: 14px;
+    --size3: 16px; 
+}
+
+/* #logo {
+    position: absolute;
+    width: 126px;
+    height: 48px;
+    left: 657px;
+    top: 72px;
+
+} */

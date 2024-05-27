@@ -78,6 +78,8 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid var(--color8);
+    border-radius: var(--size4);
 
 }
 .text {

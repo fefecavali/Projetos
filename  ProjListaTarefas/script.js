@@ -11,5 +11,13 @@ btn.addEventListener("click", ()=> {
         return;
     }
 
+    createTask()
      
 })
+
+function createTask() {
+    let li = document.createElement("li")
+   li.textContent = input;
+            ul.appendChild(taskItem);
+            taskInput.value = "";
+}

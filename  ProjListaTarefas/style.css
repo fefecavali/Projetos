@@ -67,6 +67,7 @@ section {
     font-size: var(--size2);
     font-weight: bolder;
     padding: var(--size3);
+    min-width: 18rem;
     justify-content: space-between;
 }
 
@@ -105,11 +106,11 @@ input, button {
 }
 button {
     cursor: pointer;
-    font-size: var(--size2);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    min-width: 5rem;
     
     width: 15%;
     color: var(--color11);

@@ -68,18 +68,6 @@ section {
     padding: var(--size3);
     justify-content: space-between;
 }
-
-article {
-    height: 100%;
-    gap: 10px;
-    color: var(--color9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid var(--color8);
-    border-radius: var(--size4);
-}
 nav, section {
     min-width: 18rem;
 }
@@ -120,6 +108,9 @@ button {
     background-color: var(--color1);
 }
 
+p img {
+    padding-top: 3rem;
+}
 .counter {
     width: 25px;
     text-align: center;
@@ -127,3 +118,36 @@ button {
     color: var(--color11);
     border-radius: var(--size3);
 }
+
+
+article {
+    height: 100%;
+    color: var(--color9);
+    
+}
+
+#inicialMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--color8);
+    border-radius: var(--size4);
+    gap: 10px;
+}
+
+.task {
+    border: 1px solid var(--color8);
+    padding: var(--size3);
+    margin-bottom: var(--size4);
+    width: 100%;
+    border-radius: var(--size4);
+    background-color: var(--color7);
+}
+
+.task ul {
+    list-style: circle;
+    gap: 12px;
+}
+
+

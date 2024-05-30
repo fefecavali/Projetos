@@ -56,7 +56,6 @@ nav {
     bottom: 1.2rem;
     justify-content: space-around;
     height: 8vh;
-   
 }
 
 nav, section {
@@ -67,7 +66,6 @@ section {
     font-size: var(--size2);
     font-weight: bolder;
     padding: var(--size3);
-    min-width: 18rem;
     justify-content: space-between;
 }
 
@@ -81,7 +79,9 @@ article {
     align-items: center;
     border-top: 1px solid var(--color8);
     border-radius: var(--size4);
-
+}
+nav, section {
+    min-width: 18rem;
 }
 .text {
     display: flex;
@@ -99,7 +99,7 @@ input{
     border-radius: var(--size4);
     background-color: var(--color7);
     color: var(--color9);
-    min-width: 15rem;
+ 
 }
 
 input, button {
@@ -112,7 +112,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    min-width: 5rem;
+    min-width: 4rem;
     
     width: 15%;
     color: var(--color11);

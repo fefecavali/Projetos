@@ -13,6 +13,7 @@ btn.addEventListener("click", ()=> {
         return;
     } else {
         messageParagraph.innerHTML = '';
+        messageParagraph.style.border = 'none';
     }
 
     createTask()
@@ -20,16 +21,25 @@ btn.addEventListener("click", ()=> {
 
 function createTask() {
     let divTask = document.createElement("div");
-    let list = document.createElement("ul"); // Criando a lista de tarefas
+    let content = document.createElement("div");
+    let taskImage = document.createElement("img"); 
+    let list = document.createElement("ul");
     let itemList = document.createElement("li");
     itemList.textContent = input.value;
 
+    // Configurando a imagem da tarefa
+    taskImage.src = "./btn1.png"; 
+    taskImage.alt = "icon";
+
     list.appendChild(itemList);
-    divTask.appendChild(list);
+    content.appendChild(taskImage); 
+    content.appendChild(list); 
+    divTask.appendChild(content); 
 
     // Adicionando classe 
     divTask.classList.add("task");
+    content.classList.add("content")
+
     taskVar.appendChild(divTask);
     input.value = '';            
-    
 }

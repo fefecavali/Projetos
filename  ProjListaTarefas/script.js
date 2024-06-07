@@ -63,6 +63,16 @@ function createTask() {
 
     });
     
+    trashIcon.addEventListener("mouseenter", () => {
+        trashIcon.src = "./Icones/trashIconHover.svg";
+        trashIcon.style.transform = 'scale(1.3)'
+    });
+
+    trashIcon.addEventListener("mouseleave", () => {
+        trashIcon.src = "./Icones/trashIcon.svg";
+        trashIcon.style.transform = 'scale(1.1)'
+    });
+
     trashIcon.addEventListener("click" , ()=> {
         divTask.remove();
         counterT -=1

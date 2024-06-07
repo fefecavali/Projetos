@@ -81,6 +81,7 @@ nav, section {
 
 #doneText {
     color: var(--color4);
+    padding-left: 10px;
 }
 
 input{
@@ -117,12 +118,16 @@ p img {
 }
 .counter {
     width: 25px;
+    max-height: 20px;
     text-align: center;
     background-color: var(--color8);
     color: var(--color11);
     border-radius: var(--size3);
 }
 
+#doneCounter {
+    width: 50px;
+}
 
 article {
     height: 100%;

@@ -38,7 +38,6 @@ function createTask() {
     list.appendChild(itemList);
     content.appendChild(taskIcon); 
     content.appendChild(list); 
-    counterT +=1;
     content.appendChild(trashIcon);
     divTask.appendChild(content); 
     trashIcon.classList.add("trash-icon")
@@ -48,26 +47,53 @@ function createTask() {
     taskVar.appendChild(divTask);
     input.value = '';   
     
+
     taskIcon.addEventListener("click" , ()=> {
         if (taskIcon.src.includes("iconBefore.svg")) {
             taskIcon.src = "./Icones/iconAfter.svg";
             itemList.style.textDecoration = "line-through";
             counterD +=1
-
+            
         } else {
             taskIcon.src = "./Icones/iconBefore.svg";
             itemList.style.textDecoration = "none";
             counterD -=1
         }
-        counterDone.textContent = counterD
+        counterDone.textContent = counterD + ' de ' + counterT
 
     });
     
     trashIcon.addEventListener("click" , ()=> {
+        divTask.remove();
         counterT -=1
         counterTask.textContent = counterT
-        divTask.remove();
+        counter(taskIcon)
+        noTasks()
     });
 
-    counterTask.textContent= counterT
+    counterT +=1
+    counterTask.textContent = counterT
+    
+}
+
+function counter (taskIcon) {
+    if (taskIcon.src.includes("iconAfter.svg")) {
+        counterD -=1
+        counterDone.textContent = counterD + ' de ' + counterT
+    } else {
+        counterD == counterD + 'de' + counterT
+    }
+    
+}
+
+function noTasks() {
+    if (counterT === 0) {
+        // Adicione a formatação inicial
+        messageParagraph.innerHTML = `
+            <p><img src="./Icones/taskIcon.svg" alt="taskIcon"></p>
+            <p> <strong>Você ainda não tem tarefas cadastradas</strong></p>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+        `;
+        messageParagraph.style.borderTop = '1px solid var(--color8)' ;
+    }
 }

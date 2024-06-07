@@ -89,7 +89,6 @@ input{
     border-radius: var(--size4);
     background-color: var(--color7);
     color: var(--color9);
- 
 }
 
 input, button {
@@ -110,6 +109,9 @@ button {
     background-color: var(--color1);
 }
 
+button:hover {
+    background-color: var(--color2);
+}
 p img {
     padding-top: 3rem;
 }
@@ -144,7 +146,6 @@ article {
     margin-bottom: var(--size4);
     width: 100%;
     min-height: calc(3*var(--size3));
-    max-height: 20%;
     margin-bottom: calc(2*var(--size1));
     border-radius: var(--size4);
     background-color: var(--color7);
@@ -161,8 +162,18 @@ article {
     margin-left: var(--size4);
 }
 
+.task img {
+    width: calc(2*var(--size1));
+    height: calc(2*var(--size1));
+}
 .content {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.trash-icon {
+    margin-left: auto; 
 
 }
+

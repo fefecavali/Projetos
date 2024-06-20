@@ -8,7 +8,11 @@ let messageParagraph = document.querySelector("#inicialMessage");
 let counterT = 0;
 let counterD = 0;
 
-btn.addEventListener("click", ()=> {
+// Inicializar as tarefas a partir do localStorage
+let allTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+console.log(allTasks)
+
+btn.addEventListener("click", () => {
     if (input.value.trim() === '') {
         alert("Digite uma tarefa!");
         return;
@@ -17,83 +21,87 @@ btn.addEventListener("click", ()=> {
         messageParagraph.style.border = 'none';
     }
 
-    createTask()
-})
+    let newTask = {
+        id: Date.now(), 
+        text: input.value,
+        completed: false
+    };
 
-function createTask() {
+    allTasks.push(newTask);
+    updateLocalStorage();
+    addTaskToDOM(newTask);
+    input.value = '';
+    counterT += 1;
+    updateCounter();
+    noTasks();
+});
+
+function addTaskToDOM(task) {
     let divTask = document.createElement("div");
     let content = document.createElement("div");
-    let taskIcon = document.createElement("img"); 
+    let taskIcon = document.createElement("img");
     let trashIcon = document.createElement("img");
     let list = document.createElement("ul");
     let itemList = document.createElement("li");
-    itemList.textContent = input.value;
-    
+    itemList.textContent = task.text;
+
     // Imagem da tarefa e da lixeira
-    taskIcon.src = "./Icones/iconBefore.svg"; 
+    taskIcon.src = task.completed ? "./Icones/iconAfter.svg" : "./Icones/iconBefore.svg";
     taskIcon.alt = "icon";
     trashIcon.src = "./Icones/trashIcon.svg";
     trashIcon.alt = "trashIcon";
-    
+
+    if (task.completed) {
+        itemList.style.textDecoration = "line-through";
+        counterD += 1;
+    }
+
     list.appendChild(itemList);
-    content.appendChild(taskIcon); 
-    content.appendChild(list); 
+    content.appendChild(taskIcon);
+    content.appendChild(list);
     content.appendChild(trashIcon);
-    divTask.appendChild(content); 
-    trashIcon.classList.add("trash-icon")
+    divTask.appendChild(content);
+    trashIcon.classList.add("trash-icon");
     divTask.classList.add("task");
-    content.classList.add("content")
-    
+    content.classList.add("content");
+
     taskVar.appendChild(divTask);
-    input.value = '';   
-    
 
-    taskIcon.addEventListener("click" , ()=> {
-        if (taskIcon.src.includes("iconBefore.svg")) {
-            taskIcon.src = "./Icones/iconAfter.svg";
-            itemList.style.textDecoration = "line-through";
-            counterD +=1
-            
-        } else {
-            taskIcon.src = "./Icones/iconBefore.svg";
-            itemList.style.textDecoration = "none";
-            counterD -=1
-        }
-        counterDone.textContent = counterD + ' de ' + counterT
-
+    taskIcon.addEventListener("click", () => {
+        task.completed = !task.completed;
+        taskIcon.src = task.completed ? "./Icones/iconAfter.svg" : "./Icones/iconBefore.svg";
+        itemList.style.textDecoration = task.completed ? "line-through" : "none";
+        counterD += task.completed ? 1 : -1;
+        updateLocalStorage();
+        updateCounter();
     });
-    
+
     trashIcon.addEventListener("mouseenter", () => {
         trashIcon.src = "./Icones/trashIconHover.svg";
-        trashIcon.style.transform = 'scale(1.3)'
+        trashIcon.style.transform = 'scale(1.3)';
     });
 
     trashIcon.addEventListener("mouseleave", () => {
         trashIcon.src = "./Icones/trashIcon.svg";
-        trashIcon.style.transform = 'scale(1.1)'
+        trashIcon.style.transform = 'scale(1.1)';
     });
 
-    trashIcon.addEventListener("click" , ()=> {
+    trashIcon.addEventListener("click", () => {
+        allTasks = allTasks.filter(t => t.id !== task.id);
+        updateLocalStorage();
         divTask.remove();
-        counterT -=1
-        counterTask.textContent = counterT
-        counter(taskIcon)
-        noTasks()
+        counterT -= 1;
+        if (task.completed) {
+            counterD -= 1;
+        }
+        updateCounter();
+        noTasks();
     });
-
-    counterT +=1
-    counterTask.textContent = counterT
-    
 }
 
-function counter (taskIcon) {
-    if (taskIcon.src.includes("iconAfter.svg")) {
-        counterD -=1
-        counterDone.textContent = counterD + ' de ' + counterT
-    } else {
-        counterD == counterD + 'de' + counterT
-    }
-    
+function updateCounter() {
+    counterTask.textContent = counterT;
+    counterDone.textContent = counterD + ' de ' + counterT;
 }
 
 function noTasks() {
@@ -101,9 +109,16 @@ function noTasks() {
         // Adicione a formatação inicial
         messageParagraph.innerHTML = `
             <p><img src="./Icones/taskIcon.svg" alt="taskIcon"></p>
-            <p> <strong>Você ainda não tem tarefas cadastradas</strong></p>
+            <p><strong>Você ainda não tem tarefas cadastradas</strong></p>
             <p>Crie tarefas e organize seus itens a fazer</p>
         `;
-        messageParagraph.style.borderTop = '1px solid var(--color8)' ;
+        messageParagraph.style.borderTop = '1px solid var(--color8)';
+    } else {
+        messageParagraph.innerHTML = '';
+        messageParagraph.style.border = 'none';
     }
+}
+
+function updateLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(allTasks));
 }
